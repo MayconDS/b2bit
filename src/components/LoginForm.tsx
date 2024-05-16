@@ -1,14 +1,17 @@
 import Api from "../services/api";
 
-import { z } from "zod";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+import { z } from "zod";
+
 import { AiOutlineLoading } from "react-icons/ai";
-import { useState } from "react";
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa6";
+
 import Toast from "./Toast";
-import SensitiveInput from "./SensitiveInput";
 
 const loginSchema = z.object({
   email: z.string().email(),
@@ -18,6 +21,7 @@ const loginSchema = z.object({
 type LoginSchema = z.infer<typeof loginSchema>;
 
 export default function LoginForm() {
+  const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const [error, setError] = useState("");
@@ -99,7 +103,25 @@ export default function LoginForm() {
                 Password must be between 4-16 characters!
               </span>
             )}
-            <SensitiveInput error={errors.password?.message ? true : false} />
+            <div
+              className={`input h-[54px] flex items-center justify-between bg-primary-gray p-4 rounded-lg outline-0 border  ${
+                errors.password?.message
+                  ? "border-red-500"
+                  : "border-primary-gray"
+              }`}
+            >
+              <input
+                {...register("password")}
+                type={showPassword == true ? "text" : "password"}
+                placeholder="***********"
+                className="bg-transparent border-none outline-0 flex items-center"
+              />
+              {showPassword == true ? (
+                <FaEye onClick={() => setShowPassword(false)} />
+              ) : (
+                <FaEyeSlash onClick={() => setShowPassword(true)} />
+              )}
+            </div>
           </div>
         </div>
         <button
