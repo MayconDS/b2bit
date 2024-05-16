@@ -33,7 +33,7 @@ export default function Profile() {
   }
 
   return (
-    <div className="w-full h-[100vh] bg-[#F1F5F9] overflow-hidden">
+    <div className="w-full h-[100vh] bg-[#F1F5F9]">
       <header className="bg-white h-20 flex items-center justify-end px-4">
         <button
           id="logout"
