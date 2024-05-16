@@ -48,7 +48,7 @@ export default function Profile() {
         </button>
       </header>
 
-      <div className="w-full h-full flex justify-center mt-44">
+      <div className="w-full h-full flex justify-center mt-44 p-4">
         {user !== null ? (
           <ProfileCard dataUser={user} />
         ) : (

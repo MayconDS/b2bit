@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { AiOutlineLoading } from "react-icons/ai";
 import { useState } from "react";
 import Toast from "./Toast";
+import SensitiveInput from "./SensitiveInput";
 
 const loginSchema = z.object({
   email: z.string().email(),
@@ -52,7 +53,7 @@ export default function LoginForm() {
     <>
       <form
         onSubmit={handleSubmit(handleLogin)}
-        className="bg-white w-[438px] h-[534px] rounded-[18px] shadow-custom flex flex-col items-center px-6 pt-12 gap-6"
+        className="bg-white w-[438px] h-[534px] rounded-[18px] shadow-login flex flex-col items-center px-6 pt-12 gap-6"
       >
         <img
           className="w-[295px] h-[116px]"
@@ -98,17 +99,7 @@ export default function LoginForm() {
                 Password must be between 4-16 characters!
               </span>
             )}
-            <input
-              type="text"
-              {...register("password")}
-              placeholder="*************"
-              id=""
-              className={`h-[54px] bg-primary-gray p-4 rounded-lg outline-0 border  ${
-                errors.password?.message
-                  ? "border-red-500"
-                  : "border-primary-gray"
-              }`}
-            />
+            <SensitiveInput error={errors.password?.message ? true : false} />
           </div>
         </div>
         <button

@@ -12,7 +12,7 @@ export default function ProfileCard({ dataUser }: { dataUser: UserData }) {
           alt="Profile"
         />
       </div>
-      <div className="px-6 py-4">
+      <div className="px-6 py-4 max-[280px]:px-0">
         <div className="mb-4">
           <h3 className="text-lg font-semibold text-[#313131]">
             Your <span className="font-bold text-[#1a1a1a]">Name</span>
