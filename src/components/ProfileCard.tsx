@@ -1,14 +1,19 @@
 import { UserData } from "../types";
 
 export default function ProfileCard({ dataUser }: { dataUser: UserData }) {
+  console.log(dataUser);
   return (
     <div className="max-w-lg max-h-[402px] w-full h-full bg-white shadow-profile rounded-2xl overflow-hidden p-2">
       <div className="p-4 text-center">
         <h2 className="mt-4 text-lg font-semibold">Profile picture</h2>
 
         <img
-          className="w-24 h-24 rounded-lg mx-auto mt-2"
-          src="/avatar-anonymous.webp"
+          className="w-24 h-16 rounded-lg mx-auto mt-2"
+          src={`${
+            dataUser.avatar !== null
+              ? dataUser.avatar.high
+              : "/avatar-anonymous.webp"
+          }`}
           alt="Profile"
         />
       </div>
