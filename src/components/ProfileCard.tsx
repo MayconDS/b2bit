@@ -1,7 +1,7 @@
 import { UserData } from "../types";
+import AvatarAnonymous from "../assets/avatar-anonymous.webp";
 
 export default function ProfileCard({ dataUser }: { dataUser: UserData }) {
-  console.log(dataUser);
   return (
     <div className="max-w-lg max-h-[402px] w-full h-full bg-white shadow-profile rounded-2xl overflow-hidden p-2">
       <div className="p-4 text-center">
@@ -10,9 +10,7 @@ export default function ProfileCard({ dataUser }: { dataUser: UserData }) {
         <img
           className="w-24 h-16 rounded-lg mx-auto mt-2"
           src={`${
-            dataUser.avatar !== null
-              ? dataUser.avatar.high
-              : "/avatar-anonymous.webp"
+            dataUser.avatar !== null ? dataUser.avatar.high : AvatarAnonymous
           }`}
           alt="Profile"
         />
