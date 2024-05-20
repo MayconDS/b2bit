@@ -1,5 +1,7 @@
 import Api from "../services/api";
 
+import LogoB2BIT from "../assets/logob2bit.svg";
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -61,7 +63,7 @@ export default function LoginForm() {
       >
         <img
           className="w-[295px] h-[116px]"
-          src="/logob2bit.svg"
+          src={LogoB2BIT}
           alt=""
           srcSet="b2bit logo"
         />
